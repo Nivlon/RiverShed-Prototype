@@ -19,6 +19,12 @@ public class CameraControllerScript : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position,playerObject.transform.position + posOffset,lerpFollowSpeed);
+        // MATI: im so sorry but i was too lazy to fix a bug in the rendering system
+        Vector3 actualPosition = new Vector3(
+            playerObject.transform.position.x + posOffset.x,            
+            (playerObject.transform.position.y + posOffset.y)/2f,
+            playerObject.transform.position.z + posOffset.z);
+
+        transform.position = Vector3.Lerp(transform.position, actualPosition, lerpFollowSpeed);
     }
 }
