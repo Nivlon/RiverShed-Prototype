@@ -8,7 +8,7 @@ public class GrabTest : MonoBehaviour
     private GameObject grabber = null;
     private void OnCollisionEnter2D(Collision2D collision) {
         Debug.Log("Hit!");
-        collision.gameObject.GetComponentInParent<HookShotBehaviour>().Hook(this.transform);
+        //collision.gameObject.GetComponentInParent<HookShotBehaviour>().Hook(this.transform);
         isGrabbed = true;
         grabber = collision.gameObject;
     }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4534616116569871772}
   - component: {fileID: 167035758725511234}
   - component: {fileID: -5122447291290442302}
-  - component: {fileID: 7296296754606405637}
+  - component: {fileID: 356131345539512066}
   m_Layer: 0
   m_Name: hook
   m_TagString: Untagged
@@ -100,24 +100,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &7296296754606405637
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &356131345539512066
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7609377762122632470}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d70ae28962941fe46a07bb2d42482d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hookShotBehaviour: {fileID: 0}
