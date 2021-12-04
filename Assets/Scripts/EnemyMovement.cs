@@ -28,9 +28,9 @@ public class EnemyMovement : MonoBehaviour, ITakeHit {
 	{
         Vector2 direction;
         if(isFlying) {
-            direction = target.transform.position;
+            direction = (target.transform.position - transform.position).normalized;
         } else {
-            direction = new Vector2(target.transform.position.x - transform.position.x,0);
+            direction = new Vector2(target.transform.position.x - transform.position.x,0).normalized;
         }
 		rigidBody.velocity += direction * acceleration * Time.deltaTime;
 		if(rigidBody.velocity.magnitude > maxSpeed) {
