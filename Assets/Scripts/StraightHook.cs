@@ -9,6 +9,7 @@ public class StraightHook : MonoBehaviour, IProjectile {
 
 	[SerializeField] private float MaxShootLength = 10, ShootSpeed = 20, RetractSpeed = 40, zDepth = 0, HookDelay = 1, Damage = 1;
 	[SerializeField] private Material chainMaterial;
+	[SerializeField] GameObject mirrorPointObject;
 
 	private LineRenderer ChainRenderer = null;
 	private Transform hittableObject = null;
@@ -88,6 +89,10 @@ public class StraightHook : MonoBehaviour, IProjectile {
 			hookState = HookState.Shooting;
 			shootDirection = aim.normalized;
 			shootDistination = shootDirection * MaxShootLength + (Vector2)transform.position;
+			if(shootDistination.y>mirrorPointObject.transform.position.y-0.5f) {
+				shootDistination.y=mirrorPointObject.transform.position.y-0.5f;
+			}
+			
 		}
 	}
 

@@ -8,7 +8,10 @@ public class MovementScript : MonoBehaviour
    [SerializeField]
    GameObject playerObject;
    [SerializeField]
-   float hSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f;
+   float hSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f, groundDetectionRange = 0.1f;
+
+   [SerializeField]
+   GameObject raycastSource;
    Rigidbody2D playerRb;
    bool isGrounded;
     [SerializeField]
@@ -27,6 +30,8 @@ public class MovementScript : MonoBehaviour
     void Update()
     {
         playerObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,0,0);
+
+        isGrounded = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
         //playerRb.MovePosition(new Vector2(transform.position.x + Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,playerObject.transform.position.y));
         if(isGrounded) {
             if(Input.GetButtonDown("Jump")) {
@@ -38,6 +43,7 @@ public class MovementScript : MonoBehaviour
                 playerRb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier -1) * Time.deltaTime;
             }
         }
+
         if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
         {
             animator.SetBool("Running", true);
@@ -59,13 +65,5 @@ public class MovementScript : MonoBehaviour
         }
         animator.SetBool("InAir", !isGrounded);
 
-    }
-
-    private void OnCollisionStay2D(Collision2D other) {
-        isGrounded = true;
-    }
-
-    private void OnCollisionExit2D(Collision2D other) {
-        isGrounded = false;
     }
 }
