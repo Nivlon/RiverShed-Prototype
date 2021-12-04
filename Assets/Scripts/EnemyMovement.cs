@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour, ITakeHit {
 	public Transform target;
 	public float maxSpeed;
 	public float acceleration;
+    public bool isFlying = false;
 
 	private Rigidbody2D rigidBody;
 	private Vector2 currentVelocity;
@@ -25,7 +26,12 @@ public class EnemyMovement : MonoBehaviour, ITakeHit {
 
 	void FixedUpdate()
 	{
-		Vector2 direction = target.transform.position - transform.position;
+        Vector2 direction;
+        if(isFlying) {
+            direction = target.transform.position;
+        } else {
+            direction = new Vector2(target.transform.position.x - transform.position.x,0);
+        }
 		rigidBody.velocity += direction * acceleration * Time.deltaTime;
 		if(rigidBody.velocity.magnitude > maxSpeed) {
 			rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;

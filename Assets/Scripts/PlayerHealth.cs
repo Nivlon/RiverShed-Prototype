@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
     [SerializeField]
@@ -14,8 +15,16 @@ public class PlayerHealth : MonoBehaviour {
     public void SetPlayerHealth(float _playerHealth) {
         playerHealth = Mathf.Clamp(_playerHealth,0f,playerMaxHealth);
         if(screenShader!=null) {
-            //screenShader. = Mathf.Lerp(-100f,100f,Mathf.InverseLerp(0,playerMaxHealth,playerHealth));
+            screenShader.weight = Mathf.Lerp(1f,0f,Mathf.InverseLerp(0,playerMaxHealth,playerHealth));
         }
+        if(playerHealth<=0f) {
+            Die();
+        }
+    }
+
+    void Die() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
     }
 
     public float GetPlayerHealth() {
