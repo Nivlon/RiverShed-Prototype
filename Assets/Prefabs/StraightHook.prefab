@@ -51,7 +51,7 @@ MonoBehaviour:
   ShootSpeed: 20
   RetractSpeed: 40
   zDepth: 0
-  HookDelay: 0.25
+  HookDelay: 0.5
   chainMaterial: {fileID: 2100000, guid: 7209bbaf787935b49b05a57a86f54fd6, type: 2}
 --- !u!58 &2542567974940972134
 CircleCollider2D:

@@ -13,20 +13,21 @@ public class ProjectileLauncher : MonoBehaviour {
 	private Vector2 mPos {
 		get
 		{
-			return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			return Camera.main.ScreenToWorldPoint(Input.mousePosition)-transform.position;
 		}
 	}
+
 	private Vector3 zDepthVector => Vector3.forward * zDepth;
 
 	private void Update()
 	{
 		if(Input.GetButtonDown(primaryButton) && canShoot) {
 			canShoot = false;
-			projectile = Instantiate(projectilePrefab);
+			projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
 			iprojectile = projectile.GetComponent<IProjectile>();
 			iprojectile.SetLauncher(this);
 			iprojectile.Fire(mPos);
-		} 
+		}
 		if(Input.GetButtonUp(primaryButton)) {
 			iprojectile?.FireOff();
 		}
