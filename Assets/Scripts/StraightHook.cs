@@ -66,7 +66,7 @@ public class StraightHook : MonoBehaviour, IProjectile {
 			hittableObject.transform.position = transform.position;
 		}
 	}
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if(canHook && collision.gameObject.TryGetComponent(out ITakeHit iTakeHit)) {
 			hittableObject = collision.transform;
@@ -97,8 +97,8 @@ public class StraightHook : MonoBehaviour, IProjectile {
 			hookState = HookState.Retracting;
 		}
 		if(hookState == HookState.Hooking) {
-			iHittableObject.Hit(shootDirection, Damage);
 			canHook = false;
+			iHittableObject.Hit(shootDirection, Damage);
 		}
 		hittableObject = null;
 	}

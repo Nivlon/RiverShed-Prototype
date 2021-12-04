@@ -52,7 +52,7 @@ MonoBehaviour:
   RetractSpeed: 40
   zDepth: 0
   HookDelay: 0.5
-  Damage: 1
+  Damage: 100
   chainMaterial: {fileID: 2100000, guid: 7209bbaf787935b49b05a57a86f54fd6, type: 2}
 --- !u!58 &2542567974940972134
 CircleCollider2D:
@@ -64,7 +64,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
