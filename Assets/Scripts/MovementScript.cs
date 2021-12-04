@@ -6,7 +6,7 @@ public class MovementScript : MonoBehaviour
 {
     // Start is called before the first frame update
    [SerializeField]
-   GameObject playerObject, mirrorPlayerObject,mirrorPointObject;
+   GameObject playerObject;
    [SerializeField]
    float hSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f;
    Rigidbody2D playerRb;
@@ -23,8 +23,6 @@ public class MovementScript : MonoBehaviour
     {
         playerObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,0,0);
         //playerRb.MovePosition(new Vector2(transform.position.x + Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,playerObject.transform.position.y));
-        mirrorPlayerObject.transform.position = new Vector2(playerObject.transform.position.x,2*mirrorPointObject.transform.position.y - playerObject.transform.position.y);
-        
         if(isGrounded) {
             if(Input.GetButtonDown("Jump")) {
                 playerRb.AddForce(Vector2.up * jumpForce);
