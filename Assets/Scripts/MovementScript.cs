@@ -11,7 +11,12 @@ public class MovementScript : MonoBehaviour
    float hSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f;
    Rigidbody2D playerRb;
    bool isGrounded;
-   
+    [SerializeField]
+    Animator animator;
+    [SerializeField]
+    SpriteRenderer playerSpriteNormal;
+    [SerializeField]
+    SpriteRenderer playerSpriteSoul;
 
     private void Start() {
         playerRb = playerObject.GetComponent<Rigidbody2D>();
@@ -33,7 +38,27 @@ public class MovementScript : MonoBehaviour
                 playerRb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier -1) * Time.deltaTime;
             }
         }
-        
+        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
+        {
+            animator.SetBool("Running", true);
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                playerSpriteNormal.flipX = true;
+                playerSpriteSoul.flipX = true;
+            }
+            else
+            {
+                playerSpriteNormal.flipX = false;
+                playerSpriteSoul.flipX = false;
+            }
+
+        }
+        else
+        {
+            animator.SetBool("Running", false);
+        }
+        animator.SetBool("InAir", !isGrounded);
+
     }
 
     private void OnCollisionStay2D(Collision2D other) {

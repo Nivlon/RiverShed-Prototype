@@ -71,3 +71,11 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 *.log
 UserSettings/EditorUserSettings.asset
+Logs/AssetImportWorker0-prev.log
+Logs/AssetImportWorker0.log
+Logs/shadercompiler-AssetImportWorker0.log
+Logs/shadercompiler-UnityShaderCompiler.exe0.log
+*.log
+Assets/Prefabs/StraightHook.prefab
+Assets/Water.mat
+*.log
