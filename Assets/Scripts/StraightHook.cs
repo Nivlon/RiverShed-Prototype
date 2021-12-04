@@ -7,15 +7,16 @@ using UnityEngine;
 public class StraightHook : MonoBehaviour, IProjectile {
 	[HideInInspector] public ProjectileLauncher projectileLauncher = null;
 
-	[SerializeField] private float MaxShootLength = 10, ShootSpeed = 20, RetractSpeed = 40, zDepth = 0, HookDelay = 1;
+	[SerializeField] private float MaxShootLength = 10, ShootSpeed = 20, RetractSpeed = 40, zDepth = 0, HookDelay = 1, Damage = 1;
 	[SerializeField] private Material chainMaterial;
 
 	private LineRenderer ChainRenderer = null;
-	private Hookable hookedObject = null;
+	private Transform hittableObject = null;
+	private ITakeHit iHittableObject { get => hittableObject.GetComponent<ITakeHit>(); }
 	private float hookTime = 0;
 	private bool canHook = true;
 
-	private Vector2 shootDistination = Vector2.zero;
+	private Vector2 shootDistination = Vector2.zero, shootDirection = Vector2.zero;
 	private Vector3 zDepthVector => Vector3.forward * zDepth;
 	private HookState hookState;
 
@@ -61,15 +62,15 @@ public class StraightHook : MonoBehaviour, IProjectile {
 		}
 		ChainRenderer.SetPosition(0, projectileLauncher.transform.position);
 		ChainRenderer.SetPosition(1, transform.position);
-		if(canHook && hookedObject) {
-			hookedObject.transform.position = transform.position;
+		if(canHook && hittableObject) {
+			hittableObject.transform.position = transform.position;
 		}
 	}
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		if(canHook && collision.gameObject.TryGetComponent(out Hookable hookable)) {
-			hookedObject = hookable;
-			shootDistination = hookedObject.transform.position;
+		if(canHook && collision.gameObject.TryGetComponent(out ITakeHit iTakeHit)) {
+			hittableObject = collision.transform;
+			shootDistination = hittableObject.transform.position;
 			transform.position = shootDistination;
 			hookState = HookState.Hooking;
 		}
@@ -85,7 +86,8 @@ public class StraightHook : MonoBehaviour, IProjectile {
 	{
 		if(hookState == HookState.None) {
 			hookState = HookState.Shooting;
-			shootDistination = aim.normalized * MaxShootLength + (Vector2)transform.position;
+			shootDirection = aim.normalized;
+			shootDistination = shootDirection * MaxShootLength + (Vector2)transform.position;
 		}
 	}
 
@@ -95,10 +97,10 @@ public class StraightHook : MonoBehaviour, IProjectile {
 			hookState = HookState.Retracting;
 		}
 		if(hookState == HookState.Hooking) {
-			hookedObject.Push(shootDistination.normalized);
+			iHittableObject.Hit(shootDirection, Damage);
 			canHook = false;
 		}
-		hookedObject = null;
+		hittableObject = null;
 	}
 
 	public void Secondary()

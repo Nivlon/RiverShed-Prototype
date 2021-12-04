@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(LineRenderer))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,7 +14,7 @@ public class GravityHook : MonoBehaviour, IProjectile {
 	private LineRenderer ChainRenderer = null;
 
 	private new Rigidbody2D rigidbody2D = null;
-	private Hookable hookedObject = null;
+	private Transform hookedObject = null;
 
 	private Vector2 shootDistination = Vector2.zero;
 	private Vector3 zDepthVector => Vector3.forward * zDepth;
@@ -122,4 +122,4 @@ public class GravityHook : MonoBehaviour, IProjectile {
 	{
 		throw new System.NotImplementedException();
 	}
-}
+}*/
