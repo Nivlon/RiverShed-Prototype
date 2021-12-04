@@ -46,7 +46,7 @@ public class Renderer : MonoBehaviour
                 WaterCamera.enabled = true;
                 FinalCamera.orthographicSize = WaterCamera.orthographicSize = waterUnitHeight * Size;
                 WaterCamera.transform.position = new Vector3(
-                    0,
+                    transform.position.x,
                     cameraBottomPos*2f + waterUnitHeight * Size,
                     WaterCamera.transform.position.z
                     );
@@ -64,7 +64,7 @@ public class Renderer : MonoBehaviour
                 OverworldCamera.enabled = true;
                 OverworldCamera.orthographicSize = Size * overworldUnitHeight;
                 OverworldCamera.transform.position = new Vector3(
-                    0,
+                    transform.position.x,
                     cameraTopPos*2f - overworldUnitHeight * Size,
                     OverworldCamera.transform.position.z
                     );
