@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour, ITakeHit {
 
 	public void Hit(Vector2 direction, float damage)
 	{
-		rigidBody.AddForce(direction * damage, ForceMode2D.Impulse);
+		rigidBody.AddForce(direction * 1000000f, ForceMode2D.Impulse);
 
 	}
 
