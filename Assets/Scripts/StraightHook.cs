@@ -12,7 +12,7 @@ public class StraightHook : MonoBehaviour, IProjectile {
 
 	private LineRenderer ChainRenderer = null;
 	private Transform hittableObject = null;
-	private ITakeHit iHittableObject { get => hittableObject.GetComponent<ITakeHit>(); }
+	private ITakeHit[] iHittableObject { get => hittableObject.GetComponents<ITakeHit>(); }
 	private float hookTime = 0;
 	private bool canHook = true;
 
@@ -98,7 +98,9 @@ public class StraightHook : MonoBehaviour, IProjectile {
 		}
 		if(hookState == HookState.Hooking) {
 			canHook = false;
-			iHittableObject.Hit(shootDirection, Damage);
+			foreach(var item in iHittableObject) {
+				item.Hit(shootDirection, Damage);
+			}
 		}
 		hittableObject = null;
 	}
