@@ -36,6 +36,7 @@ public class EnemyMovement : MonoBehaviour, ITakeHit {
 		if(rigidBody.velocity.magnitude > maxSpeed) {
 			rigidBody.velocity = rigidBody.velocity.normalized * maxSpeed;
 		}
-		transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, direction));
+		// turning of the look cause it doesnt really work with the sprite
+		//transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, direction));
 	}
 }
