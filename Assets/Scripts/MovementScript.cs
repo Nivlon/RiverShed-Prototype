@@ -8,7 +8,7 @@ public class MovementScript : MonoBehaviour
    [SerializeField]
    GameObject playerObject;
    [SerializeField]
-   float hSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f, groundDetectionRange = 0.1f;
+   float accelSpeed = 5f, maxSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f, groundDetectionRange = 0.1f;
 
    [SerializeField]
    GameObject raycastSource;
@@ -29,7 +29,11 @@ public class MovementScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,0,0);
+		if(Mathf.Abs(playerRb.velocity.x) <= maxSpeed) {
+            playerRb.velocity += new Vector2(Input.GetAxis("Horizontal") * accelSpeed * Time.deltaTime, 0f);
+            playerRb.velocity = new Vector2(Mathf.Clamp(playerRb.velocity.x, -maxSpeed, maxSpeed),playerRb.velocity.y);
+        }
+        //playerObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,0,0);
 
         isGrounded = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
         //playerRb.MovePosition(new Vector2(transform.position.x + Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,playerObject.transform.position.y));

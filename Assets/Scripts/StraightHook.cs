@@ -13,7 +13,8 @@ public class StraightHook : MonoBehaviour, IProjectile {
 
 	private LineRenderer ChainRenderer = null;
 	private Transform hittableObject = null;
-	private ITakeHit[] iHittableObject { get => hittableObject.GetComponents<ITakeHit>(); }
+	private ITakeHook iHookableObject { get => hittableObject?.GetComponent<ITakeHook>(); }
+	private ITakeHit[] iHittableObject { get => hittableObject?.GetComponents<ITakeHit>(); }
 	private float hookTime = 0;
 	private bool canHook = true;
 
@@ -44,6 +45,9 @@ public class StraightHook : MonoBehaviour, IProjectile {
 
 			case HookState.Retracting:
 				newPos = Vector2.MoveTowards(transform.position, projectileLauncher.transform.position, RetractSpeed * Time.deltaTime);
+				if(canHook && iHookableObject != null) {
+					newPos = iHookableObject.Hook(newPos);
+				}
 				if(newPos == (Vector2)projectileLauncher.transform.position) {
 					Die();
 				} else {
@@ -63,13 +67,10 @@ public class StraightHook : MonoBehaviour, IProjectile {
 		}
 		ChainRenderer.SetPosition(0, projectileLauncher.transform.position);
 		ChainRenderer.SetPosition(1, transform.position);
-		if(canHook && hittableObject) {
-			hittableObject.transform.position = transform.position;
-		}
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if(canHook && collision.gameObject.TryGetComponent(out ITakeHit iTakeHit)) {
+		if(canHook && (collision.gameObject.TryGetComponent(out ITakeHit iTakeHit) || collision.gameObject.TryGetComponent(out ITakeHook iTakeHook))) {
 			hittableObject = collision.transform;
 			shootDistination = hittableObject.transform.position;
 			transform.position = shootDistination;
@@ -89,10 +90,9 @@ public class StraightHook : MonoBehaviour, IProjectile {
 			hookState = HookState.Shooting;
 			shootDirection = aim.normalized;
 			shootDistination = shootDirection * MaxShootLength + (Vector2)transform.position;
-			if(shootDistination.y>mirrorPointObject.transform.position.y-0.5f) {
-				shootDistination.y=mirrorPointObject.transform.position.y-0.5f;
+			if(shootDistination.y > mirrorPointObject.transform.position.y - 0.5f) {
+				shootDistination.y = mirrorPointObject.transform.position.y - 0.5f;
 			}
-			
 		}
 	}
 
