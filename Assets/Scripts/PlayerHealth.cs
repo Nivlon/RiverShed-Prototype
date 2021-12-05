@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -8,6 +9,14 @@ public class PlayerHealth : MonoBehaviour {
     [SerializeField]
     Volume screenShader = null;
     float playerHealth;
+    [SerializeField] AudioSource audioSource = null;
+
+    private bool dying = false;
+
+    [SerializeField]
+    SpriteRenderer playerSpriteNormal;
+    [SerializeField]
+    SpriteRenderer playerSpriteSoul;
 
     private void Start() {
         SetPlayerHealth(playerMaxHealth);
@@ -23,8 +32,21 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void Die() {
+		if(dying) {
+            return;
+		}
+        dying = true;
+
+        playerSpriteNormal.enabled = false;
+        playerSpriteSoul.enabled = false;
+        audioSource.Play();
+        StartCoroutine(LoadSceneAfter(audioSource.clip.length));
+    }
+
+    IEnumerator LoadSceneAfter(float sec)
+    {
+        yield return new WaitForSeconds(sec);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        
     }
 
     public float GetPlayerHealth() {
