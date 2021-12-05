@@ -7,7 +7,7 @@ using UnityEngine;
 public class StraightHook : MonoBehaviour, IProjectile {
 	[HideInInspector] public ProjectileLauncher projectileLauncher = null;
 
-	[SerializeField] private float MaxShootLength = 10, ShootSpeed = 20, RetractSpeed = 40, zDepth = 0, HookDelay = 1, Damage = 1, MinShootLength = 1.5f;
+	[SerializeField] private float MaxShootLength = 10, ShootSpeed = 20, RetractSpeed = 40, zDepth = 0, HookDelay = 1, Damage = 1;
 	[SerializeField] private Material chainMaterial;
 	[SerializeField] GameObject mirrorPointObject;
 
@@ -48,7 +48,7 @@ public class StraightHook : MonoBehaviour, IProjectile {
 				if(canHook && iHookableObject != null) {
 					newPos = iHookableObject.Hook(newPos);
 				}
-				if((newPos-(Vector2)projectileLauncher.transform.position).magnitude < MinShootLength) {
+				if(newPos == (Vector2)projectileLauncher.transform.position) {
 					Die();
 				} else {
 					transform.position = (Vector3)newPos + zDepthVector;
