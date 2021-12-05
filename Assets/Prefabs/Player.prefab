@@ -157,7 +157,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.4557295
+  m_PointLightOuterRadius: 12
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 3965873803998354075}
   groundDetectionRange: 0.1
-  MovmentSpeed: 5
-  Jump: 8
+  MovmentSpeed: 6
+  Jump: 17
   raycastSource: {fileID: 3965873802695808292}
   animator: {fileID: 3965873803998354065}
   playerSpriteNormal: {fileID: 3965873803998354078}
@@ -376,7 +376,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 6200000, guid: f3b2481b08ddc064c96b37e732f2d567, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
