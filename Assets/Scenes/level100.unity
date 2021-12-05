@@ -209,6 +209,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
+--- !u!1 &196984600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3965873803998354075, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
+  m_PrefabInstance: {fileID: 1487560566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &196984607 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3965873803998354079, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
+  m_PrefabInstance: {fileID: 1487560566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &222329891
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5514021971901101027, guid: 88064d01a8a5a8f438c19f691f02db2d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5514021971901101027, guid: 88064d01a8a5a8f438c19f691f02db2d, type: 3}
       propertyPath: m_LocalScale.x
@@ -786,7 +796,7 @@ Transform:
   m_LocalScale: {x: 278.74335, y: 4.6248, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497870691
 GameObject:
@@ -976,49 +986,13 @@ Transform:
   m_LocalScale: {x: 20, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &668792495 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2599077678518733870, guid: f1ab898456358284cb2b02ffc05245a9, type: 3}
   m_PrefabInstance: {fileID: 1567478718}
   m_PrefabAsset: {fileID: 0}
---- !u!84 &673531503
-RenderTexture:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_ImageContentsHash:
-    serializedVersion: 2
-    Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
-  m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
-  m_Width: 928
-  m_Height: 297
-  m_AntiAliasing: 1
-  m_MipCount: -1
-  m_DepthFormat: 0
-  m_ColorFormat: 52
-  m_MipMap: 0
-  m_GenerateMips: 1
-  m_SRGB: 0
-  m_UseDynamicScale: 0
-  m_BindMS: 0
-  m_EnableCompatibleFormat: 1
-  m_TextureSettings:
-    serializedVersion: 2
-    m_FilterMode: 1
-    m_Aniso: 1
-    m_MipBias: 0
-    m_WrapU: 1
-    m_WrapV: 1
-    m_WrapW: 1
-  m_Dimension: 2
-  m_VolumeDepth: 1
 --- !u!1001 &682523180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1089,6 +1063,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2599077678518733870, guid: f1ab898456358284cb2b02ffc05245a9, type: 3}
   m_PrefabInstance: {fileID: 815431111}
   m_PrefabAsset: {fileID: 0}
+--- !u!84 &695556708
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 3
+  m_Width: 748
+  m_Height: 299
+  m_AntiAliasing: 1
+  m_MipCount: -1
+  m_DepthFormat: 0
+  m_ColorFormat: 52
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_EnableCompatibleFormat: 1
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!4 &736304975 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3244053363032440647, guid: 9f215fefaa542c04aa714f7e6cfc4412, type: 3}
@@ -1112,7 +1122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7242922252276798148, guid: ee9670d31acbb994e9eb2e4a6ee87fdf, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7242922252276798148, guid: ee9670d31acbb994e9eb2e4a6ee87fdf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1649,7 +1659,7 @@ Camera:
     serializedVersion: 2
     m_Bits: 247
   m_RenderingPath: -1
-  m_TargetTexture: {fileID: 673531503}
+  m_TargetTexture: {fileID: 695556708}
   m_TargetDisplay: 0
   m_TargetEye: 0
   m_HDR: 1
@@ -1780,7 +1790,7 @@ Transform:
   m_GameObject: {fileID: 1064914662}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20.655008, y: 6.6, z: 1}
+  m_LocalScale: {x: 16.51735, y: 6.6, z: 1}
   m_Children:
   - {fileID: 497870694}
   m_Father: {fileID: 868125165}
@@ -2262,7 +2272,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1487560568}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: mirrorObject
       value: 
@@ -2298,7 +2308,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: soulTargetForTheWispImSoSorryForThisMess
       value: 
-      objectReference: {fileID: 1487560567}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379559, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -2694,18 +2704,12 @@ PrefabInstance:
       propertyPath: mirrorPointObject
       value: 
       objectReference: {fileID: 1730279618}
+    - target: {fileID: 3965873802294799826, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
+      propertyPath: mirrorPointObject
+      value: 
+      objectReference: {fileID: 1730279618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
---- !u!4 &1487560567 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1973117097403736891, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
-  m_PrefabInstance: {fileID: 1487560566}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1487560568 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1973117096890569845, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
-  m_PrefabInstance: {fileID: 1487560566}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1556205725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2999,6 +3003,11 @@ PrefabInstance:
       objectReference: {fileID: 1730279618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141ee1fcfd7f88745b282a3f76134451, type: 3}
+--- !u!4 &1728866324 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3965873802294799825, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
+  m_PrefabInstance: {fileID: 1487560566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1730279618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2917973234767117929, guid: 8c8b34236a2fda04a8338dd812b3b56a, type: 3}
@@ -3088,7 +3097,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1487560568}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: mirrorObject
       value: 
@@ -3124,7 +3133,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: soulTargetForTheWispImSoSorryForThisMess
       value: 
-      objectReference: {fileID: 1487560567}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379559, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -3240,11 +3249,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44f3c3791e2dace4684666936d98eeb1, type: 3}
---- !u!1 &1885461529 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1973117096890569841, guid: 0489fa355464cde4a92c3fa34bbdfed5, type: 3}
-  m_PrefabInstance: {fileID: 1487560566}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1888833754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2599077678518733870, guid: f1ab898456358284cb2b02ffc05245a9, type: 3}
@@ -3269,7 +3273,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1487560568}
+      objectReference: {fileID: 196984607}
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: mirrorObject
       value: 
@@ -3289,7 +3293,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: soulTargetForTheWispImSoSorryForThisMess
       value: 
-      objectReference: {fileID: 1487560567}
+      objectReference: {fileID: 1728866324}
     - target: {fileID: 5020656794521379559, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -3691,7 +3695,7 @@ PrefabInstance:
     - target: {fileID: 2917973234767117935, guid: 8c8b34236a2fda04a8338dd812b3b56a, type: 3}
       propertyPath: objectToFollow
       value: 
-      objectReference: {fileID: 1885461529}
+      objectReference: {fileID: 196984600}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c8b34236a2fda04a8338dd812b3b56a, type: 3}
 --- !u!1001 &5020656796414618370
@@ -3708,7 +3712,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1487560568}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: mirrorObject
       value: 
@@ -3724,7 +3728,7 @@ PrefabInstance:
     - target: {fileID: 5020656794521379553, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: soulTargetForTheWispImSoSorryForThisMess
       value: 
-      objectReference: {fileID: 1487560567}
+      objectReference: {fileID: 0}
     - target: {fileID: 5020656794521379559, guid: 63ab9fb7f5c0bb542b5fd4a4fa3f2fc0, type: 3}
       propertyPath: m_RootOrder
       value: 15
