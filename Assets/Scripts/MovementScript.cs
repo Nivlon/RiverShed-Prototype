@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovementScript : MonoBehaviour {
 	// Start is called before the first frame update
@@ -60,5 +61,10 @@ public class MovementScript : MonoBehaviour {
 		}
 		animator.SetBool("InAir", !isGrounded);
 
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 	}
 }
