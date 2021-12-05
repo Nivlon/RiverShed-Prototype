@@ -151,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 1973117096890569841}
   groundDetectionRange: 0.1
-  MovmentSpeed: 5
-  Jump: 16
+  MovmentSpeed: 6
+  Jump: 17
   raycastSource: {fileID: 1973117097798458318}
   animator: {fileID: 1973117096890569851}
   playerSpriteNormal: {fileID: 1973117096890569844}
@@ -363,7 +363,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973117097640377975}
-  m_LocalRotation: {x: -0, y: -0, z: -0.6111369, w: 0.7915249}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7408706, w: 0.6716478}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -398,7 +398,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 5.4557295
+  m_PointLightOuterRadius: 11.922245
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
