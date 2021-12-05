@@ -439,5 +439,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 374f17d2371401a42a053e703bf3afff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHealth: 10
+  playerMaxHealth: 3
   screenShader: {fileID: 0}
