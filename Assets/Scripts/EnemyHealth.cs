@@ -1,9 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour,ITakeHit {
     [SerializeField]
     float maxHealth = 2f;
     float health;
+    [SerializeField] AudioSource audioSource = null;
+
+    private bool dying = false;
+
+    [SerializeField]
+    SpriteRenderer SpriteNormal;
+    [SerializeField]
+    SpriteRenderer SpriteSoul;
 
     private void Start() {
         SetHealth(maxHealth);
@@ -16,6 +25,20 @@ public class EnemyHealth : MonoBehaviour,ITakeHit {
     }
 
     private void Die() {
+        if(dying) {
+            return;
+        }
+        dying = true;
+
+        SpriteNormal.enabled = false;
+        SpriteSoul.enabled = false;
+        audioSource.Play();
+        StartCoroutine(DeleteAfter(audioSource.clip.length));
+    }
+
+    IEnumerator DeleteAfter(float sec)
+    {
+        yield return new WaitForSeconds(sec);
         Destroy(this.gameObject);
     }
 
