@@ -5,7 +5,7 @@ using UnityEngine;
 public class MirroringScript : MonoBehaviour
 {
     [SerializeField]
-   GameObject mirrorableObject, mirrorPointObject;
+   public GameObject mirrorableObject, mirrorPointObject;
     // Update is called once per frame
     void LateUpdate()
     {
