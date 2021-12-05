@@ -53,6 +53,7 @@ MonoBehaviour:
   zDepth: 0
   HookDelay: 0.5
   Damage: 100
+  MinShootLength: 1.5
   chainMaterial: {fileID: 2100000, guid: 7209bbaf787935b49b05a57a86f54fd6, type: 2}
   mirrorPointObject: {fileID: 2917973234767117929, guid: 8c8b34236a2fda04a8338dd812b3b56a, type: 3}
 --- !u!58 &2542567974940972134
