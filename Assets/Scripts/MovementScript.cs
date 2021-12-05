@@ -2,72 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovementScript : MonoBehaviour
-{
-    // Start is called before the first frame update
-   [SerializeField]
-   GameObject playerObject;
-   [SerializeField]
-   float accelSpeed = 5f, maxSpeed = 10f, fallMultiplier=2.5f,lowJumpMultiplier = 2f, jumpForce = 10f, groundDetectionRange = 0.1f;
+public class MovementScript : MonoBehaviour {
+	// Start is called before the first frame update
+	[SerializeField]
+	GameObject playerObject;
+	[SerializeField]
+	float groundDetectionRange = 0.1f, MovmentSpeed = 5, Jump = 50;
 
-   [SerializeField]
-   GameObject raycastSource;
-   Rigidbody2D playerRb;
-   bool isGrounded;
-    [SerializeField]
-    Animator animator;
-    [SerializeField]
-    SpriteRenderer playerSpriteNormal;
-    [SerializeField]
-    SpriteRenderer playerSpriteSoul;
+	[SerializeField]
+	GameObject raycastSource;
+	Rigidbody2D playerRb;
+	bool isGrounded;
+	[SerializeField]
+	Animator animator;
+	[SerializeField]
+	SpriteRenderer playerSpriteNormal;
+	[SerializeField]
+	SpriteRenderer playerSpriteSoul;
+	[SerializeField] private Vector2 VerticalVelocity = Vector2.zero, MovementInput = Vector2.zero, gravity = new Vector2(0, -9.8f);
 
-    private void Start() {
-        playerRb = playerObject.GetComponent<Rigidbody2D>();
-        isGrounded = false;
-    }
+	private void Start()
+	{
+		playerRb = playerObject.GetComponent<Rigidbody2D>();
+		isGrounded = false;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-		if(Mathf.Abs(playerRb.velocity.x) <= maxSpeed) {
-            playerRb.velocity += new Vector2(Input.GetAxis("Horizontal") * accelSpeed * Time.deltaTime, 0f);
-            playerRb.velocity = new Vector2(Mathf.Clamp(playerRb.velocity.x, -maxSpeed, maxSpeed),playerRb.velocity.y);
-        }
-        //playerObject.transform.position += new Vector3(Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,0,0);
 
-        isGrounded = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
-        //playerRb.MovePosition(new Vector2(transform.position.x + Input.GetAxis("Horizontal") * hSpeed * Time.deltaTime,playerObject.transform.position.y));
-        if(isGrounded) {
-            if(Input.GetButtonDown("Jump")) {
-                playerRb.AddForce(Vector2.up * jumpForce);
-            }
-            if(playerRb.velocity.y < 0) {
-                playerRb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier -1) * Time.deltaTime;
-            } else if(playerRb.velocity.y>0 && !Input.GetButton("Jump")) {
-                playerRb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier -1) * Time.deltaTime;
-            }
-        }
+	void Update()
+	{
+		MovementInput.Set(Input.GetAxis("Horizontal"), 0);
+		MovementInput *= Time.deltaTime;
+		MovementInput *= MovmentSpeed;
 
-        if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
-        {
-            animator.SetBool("Running", true);
-            if (Input.GetAxis("Horizontal") < 0)
-            {
-                playerSpriteNormal.flipX = true;
-                playerSpriteSoul.flipX = true;
-            }
-            else
-            {
-                playerSpriteNormal.flipX = false;
-                playerSpriteSoul.flipX = false;
-            }
+		isGrounded = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
+		if(isGrounded) {
+			if(Input.GetButtonDown("Jump")) {
+				playerRb.AddForce(Vector2.up * Jump, ForceMode2D.Impulse);
+			}
+		}
 
-        }
-        else
-        {
-            animator.SetBool("Running", false);
-        }
-        animator.SetBool("InAir", !isGrounded);
+		var MovementVector = MovementInput;
 
-    }
+		playerRb.position = playerRb.position + MovementVector;
+
+		if(Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f) {
+			animator.SetBool("Running", true);
+			if(Input.GetAxis("Horizontal") < 0) {
+				playerSpriteNormal.flipX = true;
+				playerSpriteSoul.flipX = true;
+			} else {
+				playerSpriteNormal.flipX = false;
+				playerSpriteSoul.flipX = false;
+			}
+
+		} else {
+			animator.SetBool("Running", false);
+		}
+		animator.SetBool("InAir", !isGrounded);
+
+	}
 }
