@@ -20,7 +20,9 @@ public class MovementScript : MonoBehaviour {
 	SpriteRenderer playerSpriteNormal;
 	[SerializeField]
 	SpriteRenderer playerSpriteSoul;
-	[SerializeField] private Vector2 VerticalVelocity = Vector2.zero, MovementInput = Vector2.zero, gravity = new Vector2(0, -9.8f);
+	[SerializeField] private Vector2 MovementInput = Vector2.zero, gravity = new Vector2(0, -9.8f);
+
+	Transform PrevGround = null;
 
 	private void Start()
 	{
@@ -35,14 +37,24 @@ public class MovementScript : MonoBehaviour {
 		MovementInput *= Time.deltaTime;
 		MovementInput *= MovmentSpeed;
 
-		isGrounded = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
+		var MovementVector = MovementInput;
+
+		var hit = Physics2D.Raycast(raycastSource.transform.position, Vector2.down, groundDetectionRange);
+		isGrounded = hit;
 		if(isGrounded) {
 			if(Input.GetButtonDown("Jump")) {
 				playerRb.AddForce(Vector2.up * Jump, ForceMode2D.Impulse);
 			}
-		}
 
-		var MovementVector = MovementInput;
+			if(PrevGround == hit.transform) {
+				Vector2 GroundDelta = hit.transform.position - PrevGround.position;
+				MovementVector += GroundDelta;
+			}
+			PrevGround = hit.transform;
+
+		} else {
+			PrevGround = null;
+		}
 
 		playerRb.position = playerRb.position + MovementVector;
 
@@ -62,9 +74,8 @@ public class MovementScript : MonoBehaviour {
 		animator.SetBool("InAir", !isGrounded);
 
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
+		if(Input.GetKeyDown(KeyCode.R)) {
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+		}
 	}
 }
